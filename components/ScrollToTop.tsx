@@ -8,8 +8,7 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       setScrolled(scrollTop > 100);
     };
 
@@ -26,7 +25,7 @@ export default function ScrollToTop() {
     <AnimatePresence>
       {scrolled && (
         <motion.div
-          className="fixed right-4 bottom-4 text-white bg-brand p-2 rounded-full cursor-pointer hover:bg-brand-dark transition-colors"
+          className="bg-brand hover:bg-brand-dark fixed right-4 bottom-4 cursor-pointer rounded-full p-2 text-white transition-colors"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}

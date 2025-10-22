@@ -18,13 +18,9 @@ export default function NavBar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav
-      className={cn(
-        "sticky top-0 w-full p-4 bg-background/80 backdrop-blur-md z-50"
-      )}
-    >
+    <nav className={cn("bg-background/80 sticky top-0 z-50 w-full p-4 backdrop-blur-md")}>
       {/* Desktop Navigation */}
-      <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-row items-center justify-between">
         <Image
           src="/images/numerlett-logo.png"
           alt="Logo"
@@ -34,7 +30,7 @@ export default function NavBar() {
         />
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex flex-row">
+        <div className="hidden flex-row lg:flex">
           <Link href="/products" className={linkClassName}>
             Products
           </Link>
@@ -50,16 +46,16 @@ export default function NavBar() {
         </div>
 
         {/* Desktop Auth Buttons */}
-        <div className="hidden lg:flex flex-row gap-2">
+        <div className="hidden flex-row gap-2 lg:flex">
           <Link
             href="/login"
-            className="text-white text-lg bg-brand py-2 px-4 rounded-full hover:bg-brand-dark transition-all duration-300"
+            className="bg-brand hover:bg-brand-dark rounded-full px-4 py-2 text-lg text-white transition-all duration-300"
           >
             Login
           </Link>
           <Link
             href="/signup"
-            className="text-brand text-lg bg-white py-2 px-4 rounded-full hover:bg-[#eee] transition-all duration-300"
+            className="text-brand rounded-full bg-white px-4 py-2 text-lg transition-all duration-300 hover:bg-[#eee]"
           >
             Sign Up
           </Link>
@@ -68,7 +64,7 @@ export default function NavBar() {
         {/* Mobile Menu Button */}
         <motion.button
           onClick={toggleMenu}
-          className="lg:hidden p-2 text-brand hover:text-brand-dark transition-colors"
+          className="text-brand hover:text-brand-dark p-2 transition-colors lg:hidden"
           aria-label="Toggle mobile menu"
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.1 }}
@@ -82,7 +78,7 @@ export default function NavBar() {
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <X className="w-6 h-6" />
+                <X className="h-6 w-6" />
               </motion.div>
             ) : (
               <motion.div
@@ -92,7 +88,7 @@ export default function NavBar() {
                 exit={{ rotate: -90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <Menu className="w-6 h-6" />
+                <Menu className="h-6 w-6" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -103,7 +99,7 @@ export default function NavBar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="lg:hidden mt-4 py-4 border-t border-gray-200 bg-white/95 backdrop-blur-sm rounded-lg mx-2 overflow-hidden"
+            className="mx-2 mt-4 overflow-hidden rounded-lg border-t border-gray-200 bg-white/95 py-4 backdrop-blur-sm lg:hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -129,11 +125,7 @@ export default function NavBar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 + index * 0.1 }}
                 >
-                  <Link
-                    href={link.href}
-                    className={mobileLinkClassName}
-                    onClick={toggleMenu}
-                  >
+                  <Link href={link.href} className={mobileLinkClassName} onClick={toggleMenu}>
                     {link.label}
                   </Link>
                 </motion.div>
@@ -141,21 +133,21 @@ export default function NavBar() {
 
               {/* Mobile Auth Buttons */}
               <motion.div
-                className="flex flex-col gap-3 pt-4 mt-4 border-t border-gray-200"
+                className="mt-4 flex flex-col gap-3 border-t border-gray-200 pt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.5 }}
               >
                 <Link
                   href="/login"
-                  className="text-white text-center bg-brand py-3 px-4 rounded-full hover:bg-brand-dark transition-all duration-300"
+                  className="bg-brand hover:bg-brand-dark rounded-full px-4 py-3 text-center text-white transition-all duration-300"
                   onClick={toggleMenu}
                 >
                   Login
                 </Link>
                 <Link
                   href="/signup"
-                  className="text-brand text-center bg-white py-3 px-4 rounded-full border border-brand hover:bg-gray-50 transition-all duration-300"
+                  className="text-brand border-brand rounded-full border bg-white px-4 py-3 text-center transition-all duration-300 hover:bg-gray-50"
                   onClick={toggleMenu}
                 >
                   Sign Up

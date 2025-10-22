@@ -2,15 +2,15 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <section className="grid grid-cols-1 items-center gap-8 p-10 lg:grid-cols-2">
       <div className="flex flex-col gap-4">
-        <p className="text-7xl text-balance font-extrabold text-foreground/70">
+        <p className="text-foreground/70 text-7xl font-extrabold text-balance">
           Empowering Your Business with Innovative Tech Solutions
         </p>
         <p className="text-lg font-light text-balance">
-          At NumerLett, we specialize in cutting-edge SaaS and AI-powered
-          solutions designed to elevate your business. Discover how our products
-          can transform your operations and drive growth and success.
+          At NumerLett, we specialize in cutting-edge SaaS and AI-powered solutions designed to
+          elevate your business. Discover how our products can transform your operations and drive
+          growth and success.
         </p>
       </div>
       <div className="relative">
@@ -19,7 +19,7 @@ export default function HeroSection() {
           alt="Description of the image"
           width={500}
           height={300}
-          className="w-full h-auto rounded-lg shadow-2xl"
+          className="h-auto w-full rounded-lg shadow-2xl"
           style={{
             filter: "blur(0px)",
             maskImage:
