@@ -43,6 +43,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   --color-brand: #40866c;
+  /* --color-brand: #33af91; */
   --color-brand-dark: #264f40;
   --color-brand-light: #e8f5f0;
 }
